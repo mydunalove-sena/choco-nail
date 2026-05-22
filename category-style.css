@@ -1,0 +1,879 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+  color: #2f2624;
+  background: #fff8f5;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 6vw;
+  background: rgba(255, 248, 245, 0.94);
+  border-bottom: 1px solid #f0ddd7;
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.04em;
+}
+
+.category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.category-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 14px;
+  border: 1px solid #ead2cc;
+  border-radius: 999px;
+  background: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  color: #7b5a52;
+}
+
+.category-nav a.active,
+.category-nav a:hover {
+  background: #c98382;
+  border-color: #c98382;
+  color: #fff;
+}
+
+.page-hero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 70px 24px 34px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #c98382;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.page-hero h1 {
+  margin: 0;
+  font-size: clamp(34px, 6vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -0.07em;
+}
+
+.page-hero p:last-child {
+  max-width: 640px;
+  margin: 18px auto 0;
+  color: #7f6761;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 24px 72px;
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid #f0ddd7;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(107, 72, 64, 0.08);
+}
+
+.thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f7e8e4;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px 20px 22px;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.category,
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.category {
+  background: #f8e9e5;
+  color: #a26360;
+}
+
+.badge {
+  background: #2f2624;
+  color: #fff;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  line-height: 1.35;
+  letter-spacing: -0.05em;
+}
+
+.card p {
+  margin: 0;
+  color: #76625d;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.price {
+  margin-top: 14px !important;
+  color: #a85f5d !important;
+  font-weight: 800;
+}
+
+.notice {
+  margin-top: 12px !important;
+  padding-top: 12px;
+  border-top: 1px solid #f0ddd7;
+  color: #947a73 !important;
+  font-size: 13px !important;
+}
+
+.site-footer {
+  padding: 28px 24px 46px;
+  text-align: center;
+  color: #8c746e;
+  background: #fff;
+  border-top: 1px solid #f0ddd7;
+  font-size: 13px;
+}
+
+.site-footer p {
+  margin: 6px 0;
+}
+
+code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #f8e9e5;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .category-nav {
+    justify-content: flex-start;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    padding: 16px 18px;
+  }
+
+  .brand {
+    font-size: 20px;
+  }
+
+  .category-nav a {
+    min-height: 34px;
+    padding: 8px 11px;
+    font-size: 13px;
+  }
+
+  .page-hero {
+    padding: 48px 18px 20px;
+    text-align: left;
+  }
+
+  .page-hero p:last-child {
+    margin-left: 0;
+    font-size: 15px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    padding: 18px 18px 56px;
+  }
+
+  .card {
+    border-radius: 22px;
+  }
+  
+}
+
+
+/* =========================================================
+   Index header style sync
+   - 카테고리 페이지 상단을 인덱스 랜딩 상단 분위기로 통일
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 5.8vw 16px;
+  background: rgba(255, 250, 247, 0.96);
+  border-bottom: 1px solid #eadbd5;
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  width: fit-content;
+  color: #302522;
+  text-decoration: none;
+}
+
+.brand-title {
+  font-family: "Noto Serif KR", "Nanum Myeongjo", "Malgun Gothic", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.brand-subtitle {
+  color: #b9807a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.22em;
+}
+
+.category-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 3vw, 44px);
+}
+
+.category-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: auto;
+  padding: 0 0 9px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #3b312e;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.category-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #d28b8b;
+  transform: translateX(-50%);
+  transition: width 0.2s ease;
+}
+
+.category-nav a.active,
+.category-nav a:hover {
+  background: transparent;
+  border-color: transparent;
+  color: #a76563;
+}
+
+.category-nav a.active::after,
+.category-nav a:hover::after {
+  width: 34px;
+}
+
+.reservation-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 142px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #c98382;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(164, 91, 90, 0.16);
+}
+
+.reservation-link:hover {
+  background: #bd7776;
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+  }
+
+  .category-nav {
+    grid-column: 1 / -1;
+    order: 3;
+    justify-content: flex-start;
+    gap: 18px;
+    overflow-x: auto;
+    padding-top: 8px;
+    scrollbar-width: none;
+  }
+
+  .category-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reservation-link {
+    min-width: 120px;
+    min-height: 42px;
+    padding: 0 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    padding: 15px 18px 12px;
+  }
+
+  .brand-title {
+    font-size: 21px;
+  }
+
+  .brand-subtitle {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+
+  .category-nav a {
+    font-size: 14px;
+    padding-bottom: 8px;
+  }
+
+  .reservation-link {
+    min-width: 108px;
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   Brand logo font sync with index header
+   - 갤러리/카테고리 페이지 로고를 인덱스 상단 폰트 느낌으로 보정
+   ========================================================= */
+.site-header .brand {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  min-width: 174px;
+  color: #2f2624;
+  text-decoration: none;
+  font-family: "Nanum Myeongjo", "Noto Serif KR", "Batang", "Malgun Gothic", serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.site-header .brand-title {
+  font-family: "Nanum Myeongjo", "Noto Serif KR", "Batang", "Malgun Gothic", serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+/* HTML에 Premium Nail Care 문구가 없는 경우 자동 표시 */
+.site-header .brand:not(:has(.brand-subtitle))::after {
+  content: "Premium Nail Care";
+  color: #b9807a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.22em;
+}
+
+/* HTML에 brand-subtitle이 있는 경우 스타일만 맞춤 */
+.site-header .brand-subtitle {
+  color: #b9807a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.22em;
+}
+
+@media (max-width: 560px) {
+  .site-header .brand,
+  .site-header .brand-title {
+    min-width: 142px;
+    font-size: 21px;
+    letter-spacing: -0.05em;
+  }
+
+  .site-header .brand:not(:has(.brand-subtitle))::after,
+  .site-header .brand-subtitle {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+}
+
+
+
+/* =========================================================
+   Brand logo weight sync with index header
+   - 인덱스 로고처럼 더 굵고 선명하게 보정
+   ========================================================= */
+.site-header .brand,
+.site-header .brand-title {
+  font-family: "Nanum Myeongjo", "Noto Serif KR", "Batang", "Malgun Gothic", serif;
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: #2f2624;
+  -webkit-text-stroke: 0.18px #2f2624;
+  text-shadow: 0 0 0.2px #2f2624;
+}
+
+.site-header .brand:not(:has(.brand-subtitle))::after,
+.site-header .brand-subtitle {
+  margin-top: 2px;
+  color: #b9807a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.24em;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+
+@media (max-width: 560px) {
+  .site-header .brand,
+  .site-header .brand-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.055em;
+  }
+
+  .site-header .brand:not(:has(.brand-subtitle))::after,
+  .site-header .brand-subtitle {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+  }
+}
+
+/* =========================================================
+   Care page
+   - 기존 카테고리 페이지 톤앤매너 유지 + 케어 전용 구성
+   ========================================================= */
+.care-hero {
+  padding-bottom: 26px;
+}
+
+.care-hero p:last-child {
+  max-width: 720px;
+}
+
+.care-intro-panel,
+.care-service-section,
+.care-info-grid,
+.care-notice-box {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.care-intro-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 24px;
+  padding-top: 8px;
+  padding-bottom: 34px;
+}
+
+.care-intro-text,
+.care-intro-note,
+.care-info-box,
+.care-notice-box {
+  border: 1px solid #f0ddd7;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 16px 40px rgba(107, 72, 64, 0.06);
+}
+
+.care-intro-text {
+  padding: 34px 36px;
+}
+
+.care-intro-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px;
+  background: #fff3ef;
+}
+
+.section-label {
+  margin: 0 0 10px;
+  color: #c98382;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.care-intro-text h2,
+.section-heading h2,
+.care-info-box h2,
+.care-notice-box h2 {
+  margin: 0;
+  color: #2f2624;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.25;
+  letter-spacing: -0.06em;
+}
+
+.care-intro-text p:last-child,
+.care-intro-note p,
+.care-info-box li,
+.process-list span,
+.care-notice-box p {
+  color: #76625d;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.care-intro-text p:last-child {
+  max-width: 760px;
+  margin: 18px 0 0;
+}
+
+.care-intro-note strong {
+  color: #a85f5d;
+  font-size: 20px;
+  letter-spacing: -0.04em;
+}
+
+.care-intro-note p {
+  margin: 12px 0 0;
+}
+
+.care-service-section {
+  padding-top: 18px;
+  padding-bottom: 50px;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.care-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.care-service-card {
+  position: relative;
+  min-height: 222px;
+  padding: 30px 26px 28px;
+  overflow: hidden;
+  border: 1px solid #f0ddd7;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(107, 72, 64, 0.08);
+}
+
+.care-service-card::after {
+  content: "";
+  position: absolute;
+  right: -34px;
+  bottom: -46px;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: #fff1ed;
+}
+
+.care-service-card.wide {
+  grid-column: 1 / -1;
+  min-height: auto;
+}
+
+.care-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: #f8e9e5;
+  color: #a26360;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.care-service-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 12px;
+  color: #2f2624;
+  font-size: 22px;
+  line-height: 1.35;
+  letter-spacing: -0.055em;
+}
+
+.care-service-card p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #76625d;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.care-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding-bottom: 42px;
+}
+
+.care-info-box {
+  padding: 32px 34px;
+}
+
+.care-info-box ul,
+.process-list {
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.care-info-box ul {
+  list-style: none;
+}
+
+.care-info-box ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.care-info-box ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c98382;
+}
+
+.process-list {
+  list-style: none;
+  counter-reset: care-process;
+}
+
+.process-list li {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0ddd7;
+  counter-increment: care-process;
+}
+
+.process-list li:first-child {
+  padding-top: 0;
+}
+
+.process-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.process-list strong {
+  color: #a85f5d;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+}
+
+.process-list strong::before {
+  content: counter(care-process, decimal-leading-zero) ". ";
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.process-list span {
+  display: block;
+}
+
+.care-notice-box {
+  margin-bottom: 72px;
+  padding-top: 30px;
+  padding-bottom: 32px;
+  background: #fff3ef;
+}
+
+.care-notice-box p {
+  margin: 12px 0 0;
+}
+
+@media (max-width: 900px) {
+  .care-intro-panel,
+  .care-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .care-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .care-intro-panel,
+  .care-service-section,
+  .care-info-grid,
+  .care-notice-box {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .care-intro-text,
+  .care-intro-note,
+  .care-info-box,
+  .care-notice-box {
+    border-radius: 22px;
+  }
+
+  .care-intro-text,
+  .care-info-box {
+    padding: 26px 22px;
+  }
+
+  .care-intro-note {
+    padding: 24px 22px;
+  }
+
+  .section-heading {
+    text-align: left;
+  }
+
+  .care-service-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .care-service-card {
+    min-height: auto;
+    padding: 26px 22px 24px;
+    border-radius: 22px;
+  }
+
+  .process-list li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .care-notice-box {
+    margin-bottom: 56px;
+  }
+}
+.shop-poster-page,
+.shop-poster-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.shop-poster-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.shop-poster-image {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
+}
