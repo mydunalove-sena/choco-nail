@@ -106,6 +106,33 @@
         box-shadow: 0 10px 24px rgba(3, 22, 50, 0.14);
     }
 
+    .gallery-intro-copy {
+        max-width: 48rem;
+        word-break: keep-all;
+        text-wrap: balance;
+    }
+
+    .gallery-filter-group.flex {
+        display: grid;
+        grid-template-columns: repeat(2, 96px);
+        justify-content: center;
+    }
+
+    .gallery-filter-group .gallery-filter-btn {
+        width: 96px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+        .gallery-filter-group.flex {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    }
+
     .gallery-item.is-hidden {
         display: none;
     }
@@ -198,17 +225,6 @@
                         갤러리 보기
                     </a>
                 </div>
-                <div class="flex flex-wrap justify-center md:justify-start gap-3">
-                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-outline-variant/30 text-sm text-primary font-bold shadow-sm">
-                        <span class="material-symbols-outlined text-lg">auto_awesome</span> 추천 아트
-                    </div>
-                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-outline-variant/30 text-sm text-primary font-bold shadow-sm">
-                        <span class="material-symbols-outlined text-lg">palette</span> 네일
-                    </div>
-                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-outline-variant/30 text-sm text-primary font-bold shadow-sm">
-                        <span class="material-symbols-outlined text-lg">spa</span> 패디
-                    </div>
-                </div>
             </div>
             <div class="flex-1 w-full max-w-xl">
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] transform md:rotate-1 bg-surface-container">
@@ -224,12 +240,13 @@
         <div class="container mx-auto px-margin-mobile md:px-margin-desktop max-w-container-max">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-primary mb-4">쵸코네일 갤러리</h2>
-                <p class="text-on-surface-variant text-base max-w-2xl mx-auto leading-relaxed">
-                    이미지가 먼저 보이도록 여백과 카드 구성을 정돈했습니다. 원하는 카테고리를 선택해 시술 사례를 확인해보세요.
+                <p class="gallery-intro-copy text-on-surface-variant text-base mx-auto leading-relaxed">
+                    이미지를 먼저 볼 수 있도록 갤러리를 정돈했습니다.<br>
+                    카테고리를 선택해 시술 사례를 확인해보세요.
                 </p>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-3 mb-12" aria-label="갤러리 카테고리 필터">
+            <div class="gallery-filter-group flex flex-wrap justify-center gap-3 mb-12" aria-label="갤러리 카테고리 필터">
                 <button type="button" class="gallery-filter-btn active px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container-high transition-colors" data-filter="all">전체</button>
                 <button type="button" class="gallery-filter-btn px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container-high transition-colors" data-filter="nail">네일</button>
                 <button type="button" class="gallery-filter-btn px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container-high transition-colors" data-filter="pedi">패디</button>
