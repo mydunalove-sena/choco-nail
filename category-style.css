@@ -1354,3 +1354,415 @@ body.pedi-page .pedi-mobile-hero {
     padding-right: 18px;
   }
 }
+
+/* Remaining pages mobile layout: monthly-art, care, review, shop only */
+body.monthly-art-page .remaining-mobile-header,
+body.monthly-art-page .remaining-mobile-hero,
+body.care-page .remaining-mobile-header,
+body.care-page .remaining-mobile-hero,
+body.review-page .remaining-mobile-header,
+body.review-page .remaining-mobile-hero,
+body.shop-page .remaining-mobile-header,
+body.shop-page .remaining-mobile-hero {
+  display: none;
+}
+
+@media (min-width: 761px) {
+  body.monthly-art-page .remaining-mobile-header,
+  body.monthly-art-page .remaining-mobile-hero,
+  body.care-page .remaining-mobile-header,
+  body.care-page .remaining-mobile-hero,
+  body.review-page .remaining-mobile-header,
+  body.review-page .remaining-mobile-hero,
+  body.shop-page .remaining-mobile-header,
+  body.shop-page .remaining-mobile-hero {
+    display: none !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body.monthly-art-page,
+  body.care-page,
+  body.review-page,
+  body.shop-page {
+    overflow-x: hidden;
+    background: #fff8f5;
+  }
+
+  body.monthly-art-page .site-header,
+  body.care-page .site-header,
+  body.review-page .site-header,
+  body.shop-page .site-header {
+    display: none;
+  }
+
+  body.monthly-art-page .remaining-mobile-header,
+  body.care-page .remaining-mobile-header,
+  body.review-page .remaining-mobile-header,
+  body.shop-page .remaining-mobile-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+    padding: 14px 18px 12px;
+    background: rgba(255, 250, 247, 0.98);
+    border-bottom: 1px solid #eadbd5;
+    backdrop-filter: blur(10px);
+  }
+
+  body.monthly-art-page .remaining-mobile-brand,
+  body.care-page .remaining-mobile-brand,
+  body.review-page .remaining-mobile-brand,
+  body.shop-page .remaining-mobile-brand {
+    flex: 1 1 auto;
+    color: #2f2624;
+    font-family: "Nanum Myeongjo", "Noto Serif KR", "Batang", "Malgun Gothic", serif;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+    text-decoration: none;
+    -webkit-text-stroke: 0.14px #2f2624;
+    text-shadow: 0 0 0.2px #2f2624;
+  }
+
+  body.monthly-art-page .remaining-mobile-menu,
+  body.care-page .remaining-mobile-menu,
+  body.review-page .remaining-mobile-menu,
+  body.shop-page .remaining-mobile-menu {
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  body.monthly-art-page .remaining-mobile-menu summary,
+  body.care-page .remaining-mobile-menu summary,
+  body.review-page .remaining-mobile-menu summary,
+  body.shop-page .remaining-mobile-menu summary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 72px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid #ead2cc;
+    border-radius: 999px;
+    background: #fff;
+    color: #8a5755;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1;
+    list-style: none;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(164, 91, 90, 0.1);
+  }
+
+  body.monthly-art-page .remaining-mobile-menu summary::-webkit-details-marker,
+  body.care-page .remaining-mobile-menu summary::-webkit-details-marker,
+  body.review-page .remaining-mobile-menu summary::-webkit-details-marker,
+  body.shop-page .remaining-mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  body.monthly-art-page .remaining-mobile-nav,
+  body.care-page .remaining-mobile-nav,
+  body.review-page .remaining-mobile-nav,
+  body.shop-page .remaining-mobile-nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    display: grid;
+    min-width: 188px;
+    padding: 8px;
+    border: 1px solid #eadbd5;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 18px 36px rgba(107, 72, 64, 0.16);
+  }
+
+  body.monthly-art-page .remaining-mobile-nav a,
+  body.care-page .remaining-mobile-nav a,
+  body.review-page .remaining-mobile-nav a,
+  body.shop-page .remaining-mobile-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 12px;
+    color: #4a3935;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  body.monthly-art-page .remaining-mobile-nav a.active,
+  body.care-page .remaining-mobile-nav a.active,
+  body.review-page .remaining-mobile-nav a.active,
+  body.shop-page .remaining-mobile-nav a.active {
+    background: #f8e9e5;
+    color: #a85f5d;
+  }
+
+  body.monthly-art-page .page-hero,
+  body.care-page .page-hero,
+  body.review-page .page-hero,
+  body.shop-page .page-hero {
+    display: none !important;
+  }
+
+  body.monthly-art-page .remaining-mobile-hero,
+  body.care-page .remaining-mobile-hero,
+  body.review-page .remaining-mobile-hero,
+  body.shop-page .remaining-mobile-hero {
+    display: block;
+    padding: 38px 19px 22px;
+  }
+
+  body.monthly-art-page .remaining-mobile-label,
+  body.care-page .remaining-mobile-label,
+  body.review-page .remaining-mobile-label,
+  body.shop-page .remaining-mobile-label {
+    margin: 0 0 10px;
+    color: #c98382;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  body.monthly-art-page .remaining-mobile-hero h1,
+  body.care-page .remaining-mobile-hero h1,
+  body.review-page .remaining-mobile-hero h1,
+  body.shop-page .remaining-mobile-hero h1 {
+    margin: 0;
+    color: #2f2624;
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.055em;
+  }
+
+  body.monthly-art-page .remaining-mobile-hero p:not(.remaining-mobile-label),
+  body.care-page .remaining-mobile-hero p:not(.remaining-mobile-label),
+  body.review-page .remaining-mobile-hero p:not(.remaining-mobile-label),
+  body.shop-page .remaining-mobile-hero p:not(.remaining-mobile-label) {
+    max-width: 100%;
+    margin: 14px 0 0;
+    color: #745e58;
+    font-size: 17px;
+    line-height: 1.72;
+    letter-spacing: -0.025em;
+    word-break: keep-all;
+  }
+
+  body.monthly-art-page .remaining-mobile-reservation,
+  body.care-page .remaining-mobile-reservation,
+  body.review-page .remaining-mobile-reservation,
+  body.shop-page .remaining-mobile-reservation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 54px;
+    margin-top: 22px;
+    border-radius: 999px;
+    background: #c98382;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 12px 26px rgba(164, 91, 90, 0.2);
+  }
+
+  body.monthly-art-page .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 14px 19px 58px;
+  }
+
+  body.monthly-art-page .card {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #fffdfb;
+    box-shadow: 0 14px 32px rgba(107, 72, 64, 0.1);
+  }
+
+  body.monthly-art-page .thumb {
+    aspect-ratio: 4 / 3;
+  }
+
+  body.monthly-art-page .card-body {
+    padding: 21px 20px 24px;
+  }
+
+  body.monthly-art-page .category,
+  body.monthly-art-page .badge {
+    min-height: 30px;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  body.monthly-art-page .card h3 {
+    margin-bottom: 11px;
+    font-size: 23px;
+    line-height: 1.32;
+    letter-spacing: -0.04em;
+  }
+
+  body.monthly-art-page .card p {
+    font-size: 16px;
+    line-height: 1.72;
+    letter-spacing: -0.02em;
+  }
+
+  body.monthly-art-page .price {
+    margin-top: 16px !important;
+    font-size: 17px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.care-page .care-intro-panel,
+  body.care-page .care-service-section,
+  body.care-page .care-info-grid,
+  body.care-page .care-notice-box {
+    width: 100%;
+    max-width: 430px;
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+
+  body.care-page .care-intro-panel,
+  body.care-page .care-info-grid,
+  body.care-page .care-service-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  body.care-page .care-intro-panel {
+    padding-top: 8px;
+    padding-bottom: 28px;
+  }
+
+  body.care-page .care-intro-text,
+  body.care-page .care-intro-note,
+  body.care-page .care-info-box,
+  body.care-page .care-notice-box {
+    border-radius: 22px;
+  }
+
+  body.care-page .care-intro-text,
+  body.care-page .care-info-box {
+    padding: 26px 22px;
+  }
+
+  body.care-page .care-intro-note {
+    padding: 24px 22px;
+  }
+
+  body.care-page .section-heading {
+    text-align: left;
+  }
+
+  body.care-page .care-service-section {
+    padding-top: 10px;
+    padding-bottom: 34px;
+  }
+
+  body.care-page .care-service-card,
+  body.care-page .care-service-card.wide {
+    grid-column: auto;
+    min-height: auto;
+    padding: 26px 22px 24px;
+    border-radius: 22px;
+  }
+
+  body.care-page .care-service-card h3 {
+    font-size: 22px;
+    word-break: keep-all;
+  }
+
+  body.care-page .process-list li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  body.care-page .care-notice-box {
+    margin-bottom: 56px;
+  }
+
+  body.review-page .review-poster-page,
+  body.shop-page main.shop-poster-page {
+    padding: 0 0 56px;
+    background: #fff8f5;
+  }
+
+  body.review-page .review-poster-wrap,
+  body.shop-page .shop-poster-wrap {
+    width: 100%;
+    max-width: 430px;
+    padding: 2px 19px 48px;
+  }
+
+  body.review-page .review-poster-link {
+    display: none;
+    pointer-events: none;
+  }
+
+  body.review-page .review-poster-image,
+  body.shop-page .shop-poster-image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 374px) {
+  body.monthly-art-page .remaining-mobile-header,
+  body.care-page .remaining-mobile-header,
+  body.review-page .remaining-mobile-header,
+  body.shop-page .remaining-mobile-header {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  body.monthly-art-page .remaining-mobile-brand,
+  body.care-page .remaining-mobile-brand,
+  body.review-page .remaining-mobile-brand,
+  body.shop-page .remaining-mobile-brand {
+    font-size: 19px;
+  }
+
+  body.monthly-art-page .remaining-mobile-menu summary,
+  body.care-page .remaining-mobile-menu summary,
+  body.review-page .remaining-mobile-menu summary,
+  body.shop-page .remaining-mobile-menu summary {
+    min-width: 66px;
+    padding: 0 13px;
+    font-size: 14px;
+  }
+
+  body.monthly-art-page .remaining-mobile-hero,
+  body.monthly-art-page .gallery-grid,
+  body.care-page .remaining-mobile-hero,
+  body.care-page .care-intro-panel,
+  body.care-page .care-service-section,
+  body.care-page .care-info-grid,
+  body.care-page .care-notice-box,
+  body.review-page .remaining-mobile-hero,
+  body.review-page .review-poster-wrap,
+  body.shop-page .remaining-mobile-hero,
+  body.shop-page .shop-poster-wrap {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
