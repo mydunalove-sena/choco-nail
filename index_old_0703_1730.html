@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="light" lang="ko"><head>
 <meta charset="utf-8"/>
@@ -93,11 +93,6 @@
     </script>
 <style>
         body { font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
-        /* Fix: 숨겨진 모바일 드로어의 투명 오버레이가 가격 드롭다운 클릭을 가로채지 않도록 차단 */
-        #nav-drawer.pointer-events-none,
-        #nav-drawer.pointer-events-none * {
-            pointer-events: none !important;
-        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
@@ -183,7 +178,7 @@
 <div class="container mx-auto px-margin-mobile md:px-margin-desktop max-w-container-max">
 <div class="text-center mb-16">
 <h2 class="text-3xl font-bold text-primary mb-4">서비스 안내</h2>
-
+<p class="text-on-surface-variant text-base max-w-2xl mx-auto">필요한 관리 항목을 선택해보세요.</p>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all">
@@ -238,16 +233,14 @@
 <label class="block text-primary font-bold mb-3" for="price-dropdown-button">가격 항목 선택</label>
 <div id="price-dropdown-wrapper" class="relative mb-6">
 <button id="price-dropdown-button" type="button" class="w-full rounded-2xl border border-outline-variant/40 bg-surface-white px-6 py-5 text-left text-primary text-lg font-bold shadow-sm flex items-center justify-between transition-colors hover:bg-surface-container-low focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10" aria-haspopup="true" aria-expanded="false" aria-controls="price-dropdown-menu">
-<span id="price-dropdown-label">회원권 안내</span>
+<span id="price-dropdown-label">손 젤</span>
 <span class="material-symbols-outlined">expand_more</span>
 </button>
 <div id="price-dropdown-menu" class="hidden absolute left-0 top-full z-[90] mt-2 w-full rounded-2xl bg-surface-white border border-outline-variant/30 shadow-xl overflow-hidden">
-<button type="button" data-price-category="membership" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">회원권 안내</button>
-<button type="button" data-price-category="handGel" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">손 젤 / 손 케어</button>
-<button type="button" data-price-category="pediGel" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">발 젤 / 발 케어</button>
-<button type="button" data-price-category="footCare" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">문제성 발 관리</button>
-<button type="button" data-price-category="gelRemoval" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">젤 제거</button>
-<button type="button" data-price-category="singleCare" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">단품 관리</button>
+<button type="button" data-price-category="hand" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">손 젤</button>
+<button type="button" data-price-category="pedi" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">패디</button>
+<button type="button" data-price-category="care" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">케어</button>
+<button type="button" data-price-category="membership" class="price-option w-full px-6 py-4 text-left font-bold text-primary hover:bg-surface-container-low">회원권</button>
 </div>
 </div>
 <div id="price-list-panel" class="bg-surface-white rounded-2xl shadow-xl border border-outline-variant/20 overflow-hidden" aria-live="polite"></div>
@@ -260,11 +253,11 @@
 <div class="text-center mb-12">
 <h2 class="text-3xl font-bold text-primary mb-8">시술 사례</h2>
 <div class="flex flex-wrap justify-center gap-3">
-<a class="px-6 py-2 bg-primary text-on-primary rounded-full text-sm font-bold shadow-md" href="gallery.html">전체</a>
-<a class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors" href="gallery.html#nail">네일</a>
-<a class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors" href="gallery.html#pedi">패디</a>
-<a class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors" href="care.html">케어</a>
-<a class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors" href="gallery.html#art">이달의 아트</a>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full text-sm font-bold shadow-md">전체</button>
+<button class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors">네일</button>
+<button class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors">패디</button>
+<button class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors">케어</button>
+<button class="px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-high transition-colors">이달의 아트</button>
 </div>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -411,76 +404,50 @@
         if (!wrapper || !button || !label || !menu || !panel) return;
 
         const priceData = {
-            membership: {
-                label: '회원권 안내',
-                title: '회원권 안내',
-                badge: '1년 유효',
+            hand: {
+                label: '손 젤',
+                title: '손 젤',
+                badge: '회원가 기준',
                 items: [
-                    ['20만원 회원권', '현금 적립금 2만원 / 카드 적립금 1만원'],
-                    ['30만원 회원권', '현금 적립금 3만원 / 카드 적립금 2만원']
-                ],
-                notes: ['회원권은 1년 후 소멸하며 가족 2인 사용 가능합니다.']
+                    ['손젤 케어+젤', '회원가 40,000원'],
+                    ['손젤+타샵제거', '회원가 60,000원'],
+                    ['그라데이션', '회원가 60,000원'],
+                    ['프렌치', '회원가 60,000원'],
+                    ['에어그라데이션', '회원가 65,000원']
+                ]
             },
-            handGel: {
-                label: '손 젤 / 손 케어',
-                title: '손 젤 / 손 케어',
-                badge: '회원가 포함',
+            pedi: {
+                label: '패디',
+                title: '패디',
+                badge: '상태별 안내',
                 items: [
-                    ['손젤(케어+젤) 회원가', '40,000원'],
+                    ['패디', '회원가 50,000원'],
+                    ['패디젤+타샵제거', '회원가 70,000원'],
+                    ['패디플래닝', '75,000원'],
+                    ['내성발톱', '상담 문의', true]
+                ]
+            },
+            care: {
+                label: '케어',
+                title: '케어',
+                badge: '기본 관리',
+                items: [
                     ['손케어', '25,000원'],
                     ['맨즈손케어', '30,000원'],
-                    ['손젤+제거(회원가)', '45,000원'],
-                    ['손젤+타샵제거(회원가)', '60,000원'],
-                    ['에어그라데이션(회원가)', '65,000원'],
-                    ['그라데이션(회원가)', '60,000원'],
-                    ['프렌치(회원가)', '60,000원']
-                ]
-            },
-            pediGel: {
-                label: '발 젤 / 발 케어',
-                title: '발 젤 / 발 케어',
-                badge: '회원가 포함',
-                items: [
-                    ['패디(회원가)', '50,000원'],
                     ['패디케어', '30,000원'],
-                    ['패디맨즈케어', '35,000원'],
-                    ['패디젤+자샵제거(회원가)', '60,000원'],
-                    ['패디젤+타샵제거(회원가)', '70,000원']
+                    ['맨즈패디케어', '35,000원']
                 ]
             },
-            footCare: {
-                label: '문제성 발 관리',
-                title: '문제성 발 관리',
-                badge: '회차 관리',
+            membership: {
+                label: '회원권',
+                title: '회원권',
+                badge: '적립 혜택',
                 items: [
-                    ['내성발톱', '상담'],
-                    ['패디플래닝 5회', '현금 35만원 / 카드 37만원'],
-                    ['맨즈패디플래닝 5회', '현금 40만원 / 카드 42만원'],
-                    ['내성발톱 3회', '29만원', '3회 관리 후 1회당 3만원']
-                ]
-            },
-            gelRemoval: {
-                label: '젤 제거',
-                title: '젤 제거',
-                badge: '제거 관리',
-                items: [
-                    ['손제거+자샵', '5,000원'],
-                    ['손젤제거-타샵', '20,000원', '풀스톤 제거 추가비용 있음'],
-                    ['패디제거', '10,000원'],
-                    ['패디제거-타샵', '25,000원', '풀스톤 추가비용 있음']
-                ]
-            },
-            singleCare: {
-                label: '단품 관리',
-                title: '단품 관리',
-                badge: '단품 메뉴',
-                items: [
-                    ['패디플래닝', '현금 7.5만원 / 카드 8만원'],
-                    ['맨즈패디플래닝', '현금 8.5만원 / 카드 9만원'],
-                    ['무좀발케어', '7만원~', '엄지발톱 기준'],
-                    ['내성발톱', '15만원', '엄지발톱 1개 기준'],
-                    ['아싸젤', '7만원']
-                ]
+                    ['20만원 권', '22만원 적립'],
+                    ['30만원 권', '34만원 적립'],
+                    ['50만원 권', '58만원 적립']
+                ],
+                notes: ['타인 양도 가능', '유효기간 1년', '젤 제거 비용 회원 혜택 적용']
             }
         };
 
@@ -490,16 +457,16 @@
         }
 
         function renderPriceList(category) {
-            const data = priceData[category] || priceData.membership;
+            const data = priceData[category] || priceData.hand;
 
             const rows = data.items.map((item, index) => {
                 const borderClass = index === data.items.length - 1 ? '' : ' border-b border-surface-container pb-4';
-                const note = typeof item[2] === 'string' ? `<span class="block mt-1 text-sm text-on-surface-variant">${item[2]}</span>` : '';
+                const valueClass = item[2] ? 'text-secondary' : 'text-primary';
 
                 return `
-                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-4${borderClass}">
-                        <span class="text-on-surface">${item[0]}${note}</span>
-                        <strong class="text-primary text-lg sm:text-right">${item[1]}</strong>
+                    <div class="flex justify-between items-center gap-4${borderClass}">
+                        <span class="text-on-surface">${item[0]}</span>
+                        <strong class="${valueClass} text-lg whitespace-nowrap">${item[1]}</strong>
                     </div>
                 `;
             }).join('');
@@ -545,7 +512,7 @@
                 event.stopPropagation();
 
                 const category = option.getAttribute('data-price-category');
-                const data = priceData[category] || priceData.membership;
+                const data = priceData[category] || priceData.hand;
 
                 label.textContent = data.label;
                 renderPriceList(category);
@@ -557,8 +524,8 @@
             closePriceMenu();
         });
 
-        label.textContent = priceData.membership.label;
-        renderPriceList('membership');
+        label.textContent = priceData.hand.label;
+        renderPriceList('hand');
         closePriceMenu();
     }
 

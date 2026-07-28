@@ -1,139 +1,469 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html class="light" lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>리뷰 | 쵸코네일 삼송점</title>
-  <link rel="stylesheet" href="category-style.css?v=review-source-hero-20260522">
-  <style>
-    /* 리뷰 페이지 전용: 상단 타이틀은 젤네일/케어와 동일하게 HTML 소스로 처리 */
-    .review-poster-page {
-      width: 100%;
-      padding: 0 0 80px;
-      background: #fff8f5;
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>갤러리 | 쵸코네일 삼송점</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/>
+<link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        try {
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary-fixed-dim": "#b6c7eb",
+                            "on-secondary-fixed": "#281801",
+                            "secondary-fixed-dim": "#e1c299",
+                            "inverse-on-surface": "#f2f1ec",
+                            "outline-variant": "#c5c6ce",
+                            "surface-white": "#FFFFFF",
+                            "on-tertiary-fixed": "#271900",
+                            "on-error-container": "#93000a",
+                            "tertiary-fixed": "#fbdfb0",
+                            "secondary": "#725a39",
+                            "surface-container-high": "#eae8e3",
+                            "primary-fixed": "#d7e2ff",
+                            "surface-variant": "#e4e2dd",
+                            "surface-container-lowest": "#ffffff",
+                            "on-background": "#1b1c19",
+                            "surface-container-low": "#f5f3ee",
+                            "primary-container": "#1a2b48",
+                            "on-secondary": "#ffffff",
+                            "on-primary-container": "#8293b5",
+                            "on-secondary-fixed-variant": "#584324",
+                            "outline": "#75777e",
+                            "on-tertiary-container": "#a78f66",
+                            "error-container": "#ffdad6",
+                            "inverse-surface": "#30312e",
+                            "on-primary-fixed": "#081b38",
+                            "tertiary": "#211500",
+                            "on-secondary-container": "#765f3d",
+                            "background": "#fbf9f4",
+                            "surface-bright": "#fbf9f4",
+                            "on-tertiary-fixed-variant": "#564421",
+                            "secondary-fixed": "#feddb3",
+                            "on-primary": "#ffffff",
+                            "surface-tint": "#4e5f7e",
+                            "warm-grey": "#8E8E8E",
+                            "surface": "#fbf9f4",
+                            "on-surface": "#1b1c19",
+                            "surface-container": "#f0eee9",
+                            "error": "#ba1a1a",
+                            "on-primary-fixed-variant": "#374765",
+                            "primary": "#031632",
+                            "on-error": "#ffffff",
+                            "surface-dim": "#dbdad5",
+                            "on-surface-variant": "#44474d",
+                            "tertiary-container": "#382909",
+                            "inverse-primary": "#b6c7eb",
+                            "tertiary-fixed-dim": "#dec396",
+                            "surface-container-highest": "#e4e2dd",
+                            "secondary-container": "#fbdbb0",
+                            "on-tertiary": "#ffffff",
+                            "ink-dark": "#121C2F"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                        },
+                        "spacing": {
+                            "margin-mobile": "20px",
+                            "margin-desktop": "64px",
+                            "section-gap": "80px",
+                            "container-max": "1200px",
+                            "stack-sm": "8px",
+                            "stack-md": "16px",
+                            "gutter": "24px"
+                        },
+                        "fontFamily": {
+                            "body-md": ["Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "sans-serif"],
+                            "headline-lg": ["Pretendard", "Noto Sans KR", "sans-serif"],
+                            "headline-md": ["Pretendard", "Noto Sans KR", "sans-serif"],
+                            "label-md": ["Pretendard", "Noto Sans KR", "sans-serif"]
+                        }
+                    },
+                },
+            }
+        } catch (_e) {}
+    </script>
+<style>
+    body { font-family: 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
+
+    /* Fix: 숨겨진 모바일 드로어의 투명 오버레이가 클릭을 가로채지 않도록 차단 */
+    #nav-drawer.pointer-events-none,
+    #nav-drawer.pointer-events-none * {
+        pointer-events: none !important;
     }
 
-    .review-poster-wrap {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
-      box-sizing: border-box;
+    .gallery-filter-btn.active {
+        background: #031632;
+        color: #ffffff;
+        box-shadow: 0 10px 24px rgba(3, 22, 50, 0.14);
     }
 
-    /* 리뷰 이미지는 자르지 않고 원본 비율 그대로 노출 */
-    .review-poster-box {
-      position: relative;
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
+    .gallery-item.is-hidden {
+        display: none;
     }
 
-    .review-poster-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      border-radius: 28px;
-      box-shadow: 0 18px 42px rgba(107, 72, 64, 0.08);
-      border: 1px solid #f0ddd7;
-      background: #fff;
+    img[data-gallery-image].is-broken {
+        display: none;
     }
 
-    .review-poster-link {
-      position: absolute;
-      top: 5.8%;
-      left: 68.8%;
-      width: 20.5%;
-      height: 7.2%;
-      border-radius: 999px;
-      text-decoration: none;
-      cursor: pointer;
-      z-index: 2;
-      background: rgba(0,0,0,0);
+    img[data-gallery-image].is-broken + .gallery-image-fallback {
+        display: flex;
     }
 
-    .review-poster-link:focus-visible {
-      outline: 2px solid #c98382;
-      outline-offset: 4px;
+    .gallery-image-fallback {
+        display: none;
+        min-height: 180px;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        color: #75777e;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: center;
+        background: #f0eee9;
     }
-
-    @media (max-width: 768px) {
-      .review-poster-page {
-        padding: 0 0 56px;
-      }
-
-      .review-poster-link {
-        top: 5.8%;
-        left: 68.6%;
-        width: 20.8%;
-        height: 7.4%;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .review-poster-wrap {
-        padding: 0 18px 44px;
-      }
-
-      .review-poster-image {
-        border-radius: 20px;
-      }
-
-      .review-poster-link {
-        top: 5.6%;
-        left: 68.4%;
-        width: 21.2%;
-        height: 7.8%;
-      }
-    }
-  </style>
+</style>
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="쵸코네일 삼송점 홈으로 이동">
-      <span class="brand-title">쵸코네일 삼송점</span>
-      <span class="brand-subtitle">Premium Nail Care</span>
-    </a>
-    <nav class="category-nav" aria-label="카테고리 메뉴">
-      <a href="index.html">홈</a>
-      <a href="gel-nail.html">네일</a>
-      <a href="pedi.html">패디</a>
-      <a href="monthly-art.html">이달의 아트</a>
-      <a href="care.html">케어</a>
-      <a href="gallery.html" class="active">리뷰</a>
-      <a href="shop.html">매장 소개</a>
-    </nav>
-    <a class="reservation-link" href="https://map.naver.com/p/entry/place/1964980021" target="_blank" rel="noopener" aria-label="네이버 예약">
-      네이버 예약
-    </a>
-  </header>
 
-  <main class="review-poster-page">
-    <section class="page-hero">
-      <p class="eyebrow">쵸코네일 삼송점</p>
-      <h1>리뷰</h1>
-      <p>고객님들의 소중한 후기를 모아보는 공간입니다.</p>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Navigation Drawer (Mobile) -->
+<div class="fixed inset-0 z-[100] transition-opacity duration-300 opacity-0 pointer-events-none" id="nav-drawer">
+    <div class="absolute inset-0 bg-ink-dark/30 backdrop-blur-sm pointer-events-auto" onclick="toggleDrawer()"></div>
+    <aside class="fixed inset-y-0 left-0 z-[60] flex flex-col p-8 bg-surface-white h-full w-[300px] shadow-2xl transition-transform duration-300 ease-out pointer-events-auto -translate-x-full" id="drawer-content">
+        <div class="flex items-center justify-between mb-10">
+            <span class="font-bold text-xl text-primary">쵸코네일 삼송점</span>
+            <button class="p-2 hover:bg-surface-container rounded-full transition-colors" onclick="toggleDrawer()" aria-label="메뉴 닫기">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-4">
+            <a class="flex items-center gap-4 p-4 text-on-surface hover:bg-surface-container-low rounded-xl font-medium transition-colors" href="index.html" onclick="toggleDrawer()">홈</a>
+            <a class="flex items-center gap-4 p-4 text-primary bg-surface-container-low rounded-xl font-bold transition-colors" href="gallery.html" onclick="toggleDrawer()">갤러리</a>
+            <a class="flex items-center gap-4 p-4 text-on-surface hover:bg-surface-container-low rounded-xl font-medium transition-colors" href="care.html" onclick="toggleDrawer()">케어</a>
+            <a class="flex items-center gap-4 p-4 text-on-surface hover:bg-surface-container-low rounded-xl font-medium transition-colors" href="index.html#location" onclick="toggleDrawer()">오시는 길</a>
+        </nav>
+    </aside>
+</div>
+
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-center h-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300" id="main-header">
+    <div class="container flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max w-full">
+        <div class="flex items-center gap-4">
+            <button class="p-2 -ml-2 text-primary md:hidden" onclick="toggleDrawer()" aria-label="메뉴 열기">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+            <a class="text-xl text-primary tracking-tight font-bold whitespace-nowrap" href="index.html">쵸코네일 삼송점</a>
+        </div>
+        <div class="hidden md:flex gap-8 items-center font-semibold text-sm text-on-surface-variant">
+            <a class="hover:text-primary transition-colors" href="index.html">홈</a>
+            <a class="text-primary transition-colors" href="gallery.html" aria-current="page">갤러리</a>
+            <a class="hover:text-primary transition-colors" href="care.html">케어</a>
+            <a class="hover:text-primary transition-colors" href="index.html#location">오시는 길</a>
+        </div>
+        <a class="px-6 py-2.5 bg-primary text-on-primary rounded-full text-sm font-bold hover:bg-ink-dark transition-all active:scale-95 shadow-lg whitespace-nowrap" href="https://map.naver.com/p/entry/place/1964980021" target="_blank" rel="noopener">
+            예약하기
+        </a>
+    </div>
+</header>
+
+<main class="pt-20">
+    <!-- Hero Section: index.html과 같은 구조/톤으로 정렬 -->
+    <section class="relative min-h-[70vh] flex items-center overflow-hidden bg-surface-container-low py-12 md:py-20">
+        <div class="container mx-auto px-margin-mobile md:px-margin-desktop max-w-container-max flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left">
+                <p class="text-secondary font-bold mb-4 tracking-[0.22em] text-xs uppercase">Choco Nail Gallery</p>
+                <h1 class="text-3xl md:text-5xl font-bold text-primary leading-tight mb-6">
+                    손끝과 발끝의 분위기를<br/><span class="text-secondary">차분하게 담은 갤러리</span>
+                </h1>
+                <p class="text-lg text-on-surface-variant mb-10 max-w-xl leading-relaxed">
+                    쵸코네일의 네일, 패디, 아트 시술 사례를<br class="hidden sm:block"/>
+                    대표 이미지 중심으로 정돈해 보여드립니다.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start mb-12">
+                    <a class="flex items-center justify-center gap-2 px-8 py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg hover:bg-ink-dark transition-all" href="https://map.naver.com/p/entry/place/1964980021" target="_blank" rel="noopener">
+                        <span class="material-symbols-outlined text-xl">event_available</span> 네이버 예약
+                    </a>
+                    <a class="flex items-center justify-center gap-2 px-8 py-4 bg-surface-white border border-outline-variant text-primary rounded-xl font-bold hover:bg-surface-container transition-all" href="https://instagram.com/choco__nail" target="_blank" rel="noopener">
+                        <span class="material-symbols-outlined text-xl">photo_camera</span> 인스타그램 보기
+                    </a>
+                    <a class="flex items-center justify-center gap-2 px-8 py-4 bg-secondary text-on-secondary rounded-xl font-bold hover:opacity-90 transition-all shadow-md" href="#gallery-list">
+                        갤러리 보기
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-outline-variant/30 text-sm text-primary font-bold shadow-sm">
+                        <span class="material-symbols-outlined text-lg">auto_awesome</span> 추천 아트
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-outline-variant/30 text-sm text-primary font-bold shadow-sm">
+                        <span class="material-symbols-outlined text-lg">palette</span> 네일
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-outline-variant/30 text-sm text-primary font-bold shadow-sm">
+                        <span class="material-symbols-outlined text-lg">spa</span> 패디
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 w-full max-w-xl">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] transform md:rotate-1 bg-surface-container">
+                    <img alt="오로라 쉘 네일 대표 이미지" class="w-full h-full object-cover" src="images/choco-nail-gallery-assets/01-gallery-hero-aurora-shell.png" data-gallery-image/>
+                    <p class="gallery-image-fallback">대표 이미지를 불러오지 못했습니다.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="review-poster-wrap" aria-label="리뷰 안내 이미지">
-      <div class="review-poster-box">
-        <img
-          src="images/review_intro_poster.png"
-          alt="초코네일 삼송점 리뷰 안내 이미지"
-          class="review-poster-image"
-        >
-        <a
-          class="review-poster-link"
-          href="https://map.naver.com/p/entry/place/1964980021?lng=126.876856&lat=37.6444601&placePath=/review?additionalHeight=76&fromPanelNum=1&locale=ko&svcName=map_pcv5&timestamp=202605222033&additionalHeight=76&timestamp=202605222033&locale=ko&svcName=map_pcv5&fromPanelNum=1&category=p&entry=plt&searchType=place&c=15.00,0,0,0,dh"
-          target="_blank"
-          rel="noopener"
-          aria-label="네이버 리뷰 보러가기"
-          title="네이버 리뷰 보러가기"
-        ></a>
-      </div>
-    </section>
-  </main>
+    <!-- Gallery -->
+    <section class="py-section-gap bg-surface-white" id="gallery-list">
+        <div class="container mx-auto px-margin-mobile md:px-margin-desktop max-w-container-max">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">쵸코네일 갤러리</h2>
+                <p class="text-on-surface-variant text-base max-w-2xl mx-auto leading-relaxed">
+                    이미지가 먼저 보이도록 여백과 카드 구성을 정돈했습니다. 원하는 카테고리를 선택해 시술 사례를 확인해보세요.
+                </p>
+            </div>
 
+            <div class="flex flex-wrap justify-center gap-3 mb-12" aria-label="갤러리 카테고리 필터">
+                <button type="button" class="gallery-filter-btn active px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container-high transition-colors" data-filter="all">전체</button>
+                <button type="button" class="gallery-filter-btn px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container-high transition-colors" data-filter="nail">네일</button>
+                <button type="button" class="gallery-filter-btn px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container-high transition-colors" data-filter="pedi">패디</button>
+                <button type="button" class="gallery-filter-btn px-6 py-2 bg-surface-container text-on-surface-variant rounded-full text-sm font-bold hover:bg-surface-container-high transition-colors" data-filter="art">아트</button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <article class="gallery-item group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all" data-category="art">
+                    <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                        <img alt="오로라 쉘 네일 시술 사진" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/choco-nail-gallery-assets/01-gallery-hero-aurora-shell.png" data-gallery-image/>
+                        <p class="gallery-image-fallback">이미지를 불러오지 못했습니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex text-secondary text-sm font-bold">아트</span>
+                            <span class="inline-flex px-3 py-1 rounded-full bg-surface-white text-primary text-xs font-bold border border-outline-variant/30">추천</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">오로라 쉘 네일</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">은은한 빛감과 포인트 디테일을 더한 디자인</p>
+                    </div>
+                </article>
+                <article class="gallery-item group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all" data-category="nail">
+                    <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                        <img alt="크리스탈 블루 네일 시술 사진" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/choco-nail-gallery-assets/02-gallery-nail-crystal-blue.png" data-gallery-image/>
+                        <p class="gallery-image-fallback">이미지를 불러오지 못했습니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-flex mb-3 text-secondary text-sm font-bold">네일</span>
+                        <h3 class="text-xl font-bold text-primary mb-3">크리스탈 블루</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">맑고 청량한 분위기의 포인트 네일</p>
+                    </div>
+                </article>
+
+                <article class="gallery-item group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all" data-category="nail">
+                    <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                        <img alt="로즈 베이지 스톤 네일 시술 사진" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/choco-nail-gallery-assets/03-gallery-nail-rose-beige-stone.png" data-gallery-image/>
+                        <p class="gallery-image-fallback">이미지를 불러오지 못했습니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-flex mb-3 text-secondary text-sm font-bold">네일</span>
+                        <h3 class="text-xl font-bold text-primary mb-3">로즈 베이지 스톤</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">우아한 스톤 포인트로 고급스럽게</p>
+                    </div>
+                </article>
+
+                <article class="gallery-item group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all" data-category="nail">
+                    <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                        <img alt="소프트 핑크 글리터 네일" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/choco-nail-gallery-assets/gallery-nail-soft-pink-01.png" data-gallery-image/>
+                        <p class="gallery-image-fallback">이미지를 불러오지 못했습니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-flex mb-3 text-secondary text-sm font-bold">네일</span>
+                        <h3 class="text-xl font-bold text-primary mb-3">소프트 핑크 글리터 네일</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">은은한 핑크 누드톤에 글리터 포인트를 더한 데일리 네일 디자인입니다.</p>
+                    </div>
+                </article>
+                <article class="gallery-item group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all" data-category="pedi">
+                    <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                        <img alt="자개 시스루 페디 시술 사진" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/choco-nail-gallery-assets/04-gallery-pedi-shell.png" data-gallery-image/>
+                        <p class="gallery-image-fallback">이미지를 불러오지 못했습니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-flex mb-3 text-secondary text-sm font-bold">패디</span>
+                        <h3 class="text-xl font-bold text-primary mb-3">자개 시스루 패디</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">여리여리한 자개 포인트 패디</p>
+                    </div>
+                </article>
+                <article class="gallery-item group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all" data-category="pedi">
+                    <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                        <img alt="블랙 트위드 포인트 패디" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/choco-nail-gallery-assets/gallery-pedi-black-tweed-01.png" data-gallery-image/>
+                        <p class="gallery-image-fallback">이미지를 불러오지 못했습니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-flex mb-3 text-secondary text-sm font-bold">패디</span>
+                        <h3 class="text-xl font-bold text-primary mb-3">블랙 트위드 포인트 패디</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">화이트 트위드 포인트와 블랙 컬러가 조화로운 세련된 패디 디자인입니다.</p>
+                    </div>
+                </article>
+
+                <article class="gallery-item group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all" data-category="pedi">
+                    <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                        <img alt="화이트 쥬얼 패디" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/choco-nail-gallery-assets/gallery-pedi-white-jewel-02.png" data-gallery-image/>
+                        <p class="gallery-image-fallback">이미지를 불러오지 못했습니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-flex mb-3 text-secondary text-sm font-bold">패디</span>
+                        <h3 class="text-xl font-bold text-primary mb-3">화이트 쥬얼 패디</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">화이트 컬러와 쥬얼 포인트가 돋보이는 고급스러운 패디 디자인입니다.</p>
+                    </div>
+                </article>
+
+
+                <article class="gallery-item group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all" data-category="art">
+                    <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                        <img alt="골드 글리터 무드 네일 아트 시술 사진" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/choco-nail-gallery-assets/05-gallery-nail-gold-glitter.png" data-gallery-image/>
+                        <p class="gallery-image-fallback">이미지를 불러오지 못했습니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-flex mb-3 text-secondary text-sm font-bold">아트</span>
+                        <h3 class="text-xl font-bold text-primary mb-3">골드 글리터 무드</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">따뜻한 골드빛으로 화사하게</p>
+                    </div>
+                </article>
+
+
+                <article class="gallery-item group bg-surface-container-low rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all" data-category="art">
+                    <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                        <img alt="뮤트 핑크 마블 네일 아트 시술 사진" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/choco-nail-gallery-assets/06-gallery-nail-mute-pink-marble.png" data-gallery-image/>
+                        <p class="gallery-image-fallback">이미지를 불러오지 못했습니다.</p>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-flex mb-3 text-secondary text-sm font-bold">아트</span>
+                        <h3 class="text-xl font-bold text-primary mb-3">뮤트 핑크 마블</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">차분한 컬러감의 마블 아트</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mt-16 rounded-3xl bg-surface-container-low border border-outline-variant/20 p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold text-primary mb-3">더 많은 시술 사진을 확인해보세요</h3>
+                    <p class="text-on-surface-variant leading-relaxed">네이버와 인스타그램에서 최신 시술 사진과 매장 소식을 확인하실 수 있습니다.</p>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-3">
+                    <a class="px-6 py-3 bg-primary text-on-primary rounded-xl font-bold shadow-lg hover:bg-ink-dark transition-all" href="https://map.naver.com/p/entry/place/1964980021" target="_blank" rel="noopener">네이버에서 보기</a>
+                    <a class="px-6 py-3 border border-primary text-primary rounded-xl font-bold hover:bg-surface-container transition-all" href="https://instagram.com/choco__nail" target="_blank" rel="noopener">인스타그램 보기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low py-16 px-margin-mobile border-t border-outline-variant/20 mb-20 md:mb-0">
+    <div class="container mx-auto max-w-container-max flex flex-col items-center text-center">
+        <span class="text-xl text-primary mb-8 font-bold">쵸코네일 삼송점</span>
+        <div class="flex flex-wrap justify-center gap-10 mb-10 text-on-surface-variant font-bold text-sm">
+            <a class="hover:text-primary transition-colors" href="index.html">개인정보처리방침</a>
+            <a class="hover:text-primary transition-colors" href="index.html">이용약관</a>
+            <a class="hover:text-primary flex items-center gap-1 transition-colors" href="https://instagram.com/choco__nail" target="_blank" rel="noopener">인스타그램 <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+        </div>
+        <p class="text-sm text-on-surface-variant/60 max-w-md">
+            © 2024 Choco Nail. 1:1 Private Nail Salon.<br/>
+            All rights reserved. Professional nail care service.
+        </p>
+    </div>
+</footer>
+
+<!-- Sticky Bottom Mobile Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-4 py-3 pb-safe bg-surface-white shadow-[0_-8px_30px_rgba(0,0,0,0.08)] rounded-t-3xl">
+    <a class="flex-1 flex flex-col items-center justify-center gap-1 text-primary py-2" href="https://map.naver.com/p/entry/place/1964980021" target="_blank" rel="noopener">
+        <span class="material-symbols-outlined text-2xl">event_available</span>
+        <span class="text-[11px] font-bold">네이버 예약</span>
+    </a>
+    <a class="flex-1 flex flex-col items-center justify-center gap-1 text-on-surface-variant py-2" href="https://open.kakao.com/o/sCU8pFob" target="_blank" rel="noopener">
+        <span class="material-symbols-outlined text-2xl">chat</span>
+        <span class="text-[11px] font-bold">카톡 상담</span>
+    </a>
+    <a class="flex-1 flex flex-col items-center justify-center gap-1 text-on-surface-variant py-2" href="tel:01055995908">
+        <span class="material-symbols-outlined text-2xl">call</span>
+        <span class="text-[11px] font-bold">전화 문의</span>
+    </a>
+</nav>
+
+<script>
+    function toggleDrawer() {
+        const drawer = document.getElementById('nav-drawer');
+        const content = document.getElementById('drawer-content');
+        if (drawer.classList.contains('opacity-0')) {
+            drawer.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('-translate-x-full');
+        } else {
+            drawer.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('-translate-x-full');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+        const items = document.querySelectorAll('.gallery-item');
+
+        function applyGalleryFilter(filter) {
+            const activeFilter = ['all', 'nail', 'pedi', 'art'].includes(filter) ? filter : 'all';
+
+            filterButtons.forEach(function (item) {
+                item.classList.toggle('active', item.getAttribute('data-filter') === activeFilter);
+            });
+
+            items.forEach(function (item) {
+                const category = item.getAttribute('data-category');
+                if (activeFilter === 'all' || category === activeFilter) {
+                    item.classList.remove('is-hidden');
+                } else {
+                    item.classList.add('is-hidden');
+                }
+            });
+        }
+
+        filterButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                applyGalleryFilter(button.getAttribute('data-filter'));
+            });
+        });
+
+        if (window.location.hash) {
+            applyGalleryFilter(window.location.hash.replace('#', ''));
+        }
+
+        window.addEventListener('hashchange', function () {
+            applyGalleryFilter(window.location.hash.replace('#', ''));
+        });
+
+        document.querySelectorAll('[data-gallery-image]').forEach(function (image) {
+            image.addEventListener('error', function () {
+                image.classList.add('is-broken');
+                image.removeAttribute('src');
+            });
+        });
+    });
+
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('main-header');
+        if (!header) return;
+
+        if (window.scrollY > 50) {
+            header.classList.add('h-16', 'shadow-md');
+            header.classList.remove('h-20');
+        } else {
+            header.classList.remove('h-16', 'shadow-md');
+            header.classList.add('h-20');
+        }
+    });
+</script>
 </body>
 </html>
+
+
