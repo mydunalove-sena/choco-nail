@@ -239,9 +239,13 @@ body {
 
   .mobile-brand {
     color: #5d3934;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.25;
+    font-family: "Nanum Myeongjo", "Noto Serif KR", "Batang", "Malgun Gothic", serif;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+    -webkit-text-stroke: 0.14px #2f2624;
+    text-shadow: 0 0 0.2px #2f2624;
   }
 
   .mobile-reserve {
@@ -263,9 +267,11 @@ body {
   .mobile-label {
     margin: 0;
     color: #bd7e78;
-    font-size: 13px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0;
+    line-height: 1;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
   }
 
